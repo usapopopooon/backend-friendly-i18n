@@ -1,6 +1,6 @@
 {
   "name": "@bf-i18n/cli",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "CLI tool for backend-friendly i18n",
   "type": "module",
   "bin": {
@@ -9,7 +9,8 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "keywords": [
     "i18n",
