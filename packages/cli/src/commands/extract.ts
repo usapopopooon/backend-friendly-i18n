@@ -48,11 +48,7 @@ function extractKeysFromFile(filePath: string, content: string): ExtractedKey[] 
   return keys;
 }
 
-function walkDirectory(
-  dir: string,
-  extensions: string[],
-  ignore: string[]
-): string[] {
+function walkDirectory(dir: string, extensions: string[], ignore: string[]): string[] {
   const files: string[] = [];
 
   function walk(currentDir: string): void {
@@ -157,9 +153,7 @@ export const extractCommand = new Command('extract')
         }
 
         if (options.json || options.output) {
-          const jsonOutput = options.unique
-            ? outputKeys.map((k) => k.key)
-            : outputKeys;
+          const jsonOutput = options.unique ? outputKeys.map((k) => k.key) : outputKeys;
 
           if (options.output) {
             fs.writeFileSync(options.output, JSON.stringify(jsonOutput, null, 2));

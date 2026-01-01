@@ -2,8 +2,6 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { detectBrowserLocale, isBrowser } from './locale-detection.js';
 
 describe('locale-detection', () => {
-  const originalNavigator = global.navigator;
-
   beforeEach(() => {
     // Reset navigator mock before each test
     vi.stubGlobal('navigator', undefined);

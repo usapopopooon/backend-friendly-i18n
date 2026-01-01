@@ -13,8 +13,4 @@ export {
 } from './interpolator.js';
 export { Pluralizer, createRailsPluralizer, createLaravelPluralizer } from './pluralizer.js';
 export { CompatibilityChecker, checkCompatibility } from './compatibility.js';
-export {
-  detectBrowserLocale,
-  isBrowser,
-  type BrowserLocaleOptions,
-} from './locale-detection.js';
+export { detectBrowserLocale, isBrowser, type BrowserLocaleOptions } from './locale-detection.js';

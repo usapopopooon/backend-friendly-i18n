@@ -90,9 +90,7 @@ function findBestMatch(browserLocale: string, availableLocales: string[]): strin
   const languageCode = getLanguageCode(normalized);
 
   // 1. Try exact match (case-insensitive)
-  const exactMatch = availableLocales.find(
-    (loc) => normalizeLocale(loc) === normalized
-  );
+  const exactMatch = availableLocales.find((loc) => normalizeLocale(loc) === normalized);
   if (exactMatch) {
     return exactMatch;
   }

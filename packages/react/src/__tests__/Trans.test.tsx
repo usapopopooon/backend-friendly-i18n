@@ -52,10 +52,7 @@ describe('Trans', () => {
     render(
       <I18nProvider i18n={i18n}>
         <div data-testid="container">
-          <Trans
-            i18nKey="withMultipleTags"
-            components={{ bold: <strong />, italic: <em /> }}
-          />
+          <Trans i18nKey="withMultipleTags" components={{ bold: <strong />, italic: <em /> }} />
         </div>
       </I18nProvider>
     );
@@ -126,11 +123,7 @@ describe('Trans', () => {
     render(
       <I18nProvider i18n={i18n}>
         <div data-testid="container">
-          <Trans
-            i18nKey="key"
-            options={{ scope: 'nested' }}
-            components={{ bold: <strong /> }}
-          />
+          <Trans i18nKey="key" options={{ scope: 'nested' }} components={{ bold: <strong /> }} />
         </div>
       </I18nProvider>
     );
