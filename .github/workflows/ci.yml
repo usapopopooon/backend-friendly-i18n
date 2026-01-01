@@ -21,6 +21,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Check Prettier formatting
+        run: npm run format:check
+
+      - name: Run cspell
+        run: npm run spell
+
       - name: Build core first
         run: npm run build -w @bf-i18n/core
 
@@ -32,12 +41,3 @@ jobs:
 
       - name: Run tests
         run: npm test --workspaces --if-present
-
-      - name: Run ESLint
-        run: npm run lint
-
-      - name: Check Prettier formatting
-        run: npm run format:check
-
-      - name: Run cspell
-        run: npm run spell
