@@ -7,10 +7,7 @@ import { PluralizationOptionsSchema } from './pluralization.js';
 /**
  * Handler for missing translations.
  */
-export type MissingTranslationHandler = (
-  key: string,
-  locale: string
-) => string | undefined;
+export type MissingTranslationHandler = (key: string, locale: string) => string | undefined;
 
 /**
  * I18n constructor options.

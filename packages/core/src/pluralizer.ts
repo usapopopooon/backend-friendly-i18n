@@ -105,11 +105,7 @@ export class Pluralizer {
   /**
    * 個別のルールをパース
    */
-  private parseRule(
-    part: string,
-    index: number,
-    totalParts: number
-  ): LaravelPluralRule | null {
+  private parseRule(part: string, index: number, totalParts: number): LaravelPluralRule | null {
     // {n} 形式（完全一致）
     const exactMatch = part.match(/^\{(\d+)\}\s*(.*)$/);
     if (exactMatch) {
@@ -173,16 +169,10 @@ export class Pluralizer {
   /**
    * 複数形を解決（タイプに応じて処理を分岐）
    */
-  resolve(
-    value: TranslationValue,
-    count: number
-  ): TranslationValue | undefined {
+  resolve(value: TranslationValue, count: number): TranslationValue | undefined {
     if (this.type === 'key') {
       if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-        return this.resolveKeyBased(
-          value as Record<string, TranslationValue>,
-          count
-        );
+        return this.resolveKeyBased(value as Record<string, TranslationValue>, count);
       }
       return value;
     }
@@ -229,10 +219,7 @@ export class Pluralizer {
         result['zero'] = rule.text;
       } else if (rule.exact === 1) {
         result['one'] = rule.text;
-      } else if (
-        rule.rangeStart !== undefined &&
-        rule.rangeEnd === Infinity
-      ) {
+      } else if (rule.rangeStart !== undefined && rule.rangeEnd === Infinity) {
         result['other'] = rule.text;
       }
     }

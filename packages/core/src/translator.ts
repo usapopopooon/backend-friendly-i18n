@@ -154,9 +154,7 @@ export class Translator {
 
     // デフォルト値がある場合
     if (options.default !== undefined) {
-      const defaultValue = Array.isArray(options.default)
-        ? options.default[0]
-        : options.default;
+      const defaultValue = Array.isArray(options.default) ? options.default[0] : options.default;
       return this.interpolator.interpolate(defaultValue, options);
     }
 
@@ -180,10 +178,7 @@ export class Translator {
   /**
    * スコープを適用
    */
-  private applyScope(
-    key: string,
-    scope?: string | string[]
-  ): string {
+  private applyScope(key: string, scope?: string | string[]): string {
     if (!scope) {
       return key;
     }
@@ -206,10 +201,7 @@ export class Translator {
     }
 
     const keys = key.split('.');
-    let value = this.getNestedValue(
-      localeTranslations as Record<string, TranslationValue>,
-      keys
-    );
+    let value = this.getNestedValue(localeTranslations as Record<string, TranslationValue>, keys);
 
     if (value === undefined) {
       return undefined;
@@ -250,10 +242,7 @@ export class Translator {
     if (!this.translations[locale]) {
       this.translations[locale] = {};
     }
-    this.deepMerge(
-      this.translations[locale] as Record<string, TranslationValue>,
-      newTranslations
-    );
+    this.deepMerge(this.translations[locale] as Record<string, TranslationValue>, newTranslations);
   }
 
   /**

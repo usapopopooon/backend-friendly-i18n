@@ -54,11 +54,7 @@ export const vT: Directive<TDirectiveElement, string> = {
   },
 };
 
-function updateElement(
-  el: HTMLElement,
-  binding: DirectiveBinding<string>,
-  i18n: I18n
-): void {
+function updateElement(el: HTMLElement, binding: DirectiveBinding<string>, i18n: I18n): void {
   const key = binding.value;
   const translation = i18n.t(key);
 

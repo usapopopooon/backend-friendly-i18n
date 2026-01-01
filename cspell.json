@@ -1,0 +1,37 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "bf-i18n",
+    "i18n",
+    "composables",
+    "pluralizer",
+    "interpolator",
+    "localizable",
+    "tsup",
+    "vitest",
+    "vitejs",
+    "typeof",
+    "instanceof",
+    "stringified",
+    "unsubscribe",
+    "syncexternalstore",
+    "usesyncexternalstore",
+    "Intl",
+    "usapo",
+    "usapopopooon",
+    "workspaces",
+    "laravel",
+    "Laravel"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "package-lock.json",
+    "*.min.js"
+  ],
+  "ignoreRegExpList": [
+    "/%\\{\\w+\\}/g",
+    "/:\\w+/g"
+  ]
+}

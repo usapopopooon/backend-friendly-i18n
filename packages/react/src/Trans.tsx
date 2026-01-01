@@ -54,13 +54,7 @@ function parseTranslation(
 
     if (component) {
       // Clone the component with the content
-      result.push(
-        React.cloneElement(
-          component,
-          { key: match.index },
-          content
-        )
-      );
+      result.push(React.cloneElement(component, { key: match.index }, content));
     } else {
       // If no component mapping, keep the original text
       result.push(match[0]);

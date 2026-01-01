@@ -24,11 +24,7 @@ export interface I18nProviderProps {
  * I18n context provider for React.
  * Either provide an existing I18n instance or options to create one.
  */
-export function I18nProvider({
-  i18n,
-  options,
-  children,
-}: I18nProviderProps): React.ReactElement {
+export function I18nProvider({ i18n, options, children }: I18nProviderProps): React.ReactElement {
   const i18nInstance = useMemo(() => {
     if (i18n) {
       return i18n;
@@ -36,14 +32,8 @@ export function I18nProvider({
     if (options) {
       return createI18n(options);
     }
-    throw new Error(
-      'I18nProvider requires either an i18n instance or options to create one'
-    );
+    throw new Error('I18nProvider requires either an i18n instance or options to create one');
   }, [i18n, options]);
 
-  return (
-    <I18nContext.Provider value={i18nInstance}>
-      {children}
-    </I18nContext.Provider>
-  );
+  return <I18nContext.Provider value={i18nInstance}>{children}</I18nContext.Provider>;
 }

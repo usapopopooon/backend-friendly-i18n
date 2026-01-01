@@ -46,9 +46,7 @@ export interface UseTranslationReturn {
 /**
  * Hook for translations with automatic re-render on locale change.
  */
-export function useTranslation(
-  options: UseTranslationOptions = {}
-): UseTranslationReturn {
+export function useTranslation(options: UseTranslationOptions = {}): UseTranslationReturn {
   const i18n = useI18n();
 
   // Subscribe to locale changes for automatic re-render

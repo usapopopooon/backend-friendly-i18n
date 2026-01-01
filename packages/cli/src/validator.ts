@@ -16,10 +16,7 @@ export interface ValidationResult {
 /**
  * Get all keys from a nested object as dot-notation paths.
  */
-function getAllKeys(
-  obj: Record<string, unknown>,
-  prefix = ''
-): string[] {
+function getAllKeys(obj: Record<string, unknown>, prefix = ''): string[] {
   const keys: string[] = [];
 
   for (const [key, value] of Object.entries(obj)) {

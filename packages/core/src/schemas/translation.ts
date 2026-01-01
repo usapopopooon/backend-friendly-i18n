@@ -26,8 +26,8 @@ export type TranslationValue =
 /**
  * Nested object structure for translation resources.
  */
-export const TranslationObjectSchema: z.ZodType<TranslationObject> = z.lazy(
-  () => z.record(z.string(), TranslationValueSchema)
+export const TranslationObjectSchema: z.ZodType<TranslationObject> = z.lazy(() =>
+  z.record(z.string(), TranslationValueSchema)
 );
 
 export type TranslationObject = {
@@ -44,14 +44,7 @@ export type Translations = z.infer<typeof TranslationsSchema>;
 /**
  * Plural category keys (Rails format).
  */
-export const PluralCategorySchema = z.enum([
-  'zero',
-  'one',
-  'two',
-  'few',
-  'many',
-  'other',
-]);
+export const PluralCategorySchema = z.enum(['zero', 'one', 'two', 'few', 'many', 'other']);
 export type PluralCategory = z.infer<typeof PluralCategorySchema>;
 
 /**

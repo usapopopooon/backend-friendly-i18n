@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { ref, nextTick } from 'vue';
+import { describe, it, expect } from 'vitest';
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { createI18n } from '@bf-i18n/core';
-import { I18nPlugin, I18nInjectionKey } from '../plugin.js';
+import { I18nPlugin } from '../plugin.js';
 import { useI18n, useTranslation, useLocale } from '../composables.js';
 import { defineComponent, h } from 'vue';
 
@@ -10,9 +10,7 @@ describe('useI18n', () => {
   it('throws error when plugin is not installed', () => {
     const TestComponent = defineComponent({
       setup() {
-        expect(() => useI18n()).toThrow(
-          'useI18n must be used after installing I18nPlugin'
-        );
+        expect(() => useI18n()).toThrow('useI18n must be used after installing I18nPlugin');
         return () => h('div');
       },
     });

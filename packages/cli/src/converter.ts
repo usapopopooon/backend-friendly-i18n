@@ -1,8 +1,5 @@
 import { Interpolator, Pluralizer } from '@bf-i18n/core';
-import {
-  RailsInterpolationDefaults,
-  LaravelInterpolationDefaults,
-} from '@bf-i18n/core';
+import { RailsInterpolationDefaults, LaravelInterpolationDefaults } from '@bf-i18n/core';
 import type { Mode } from '@bf-i18n/core';
 
 type TranslationObject = Record<string, unknown>;
@@ -32,11 +29,7 @@ export function convertTranslations(
   const result: Record<string, TranslationObject> = {};
 
   for (const [locale, localeTranslations] of Object.entries(translations)) {
-    result[locale] = convertLocaleTranslations(
-      localeTranslations,
-      fromMode,
-      toMode
-    );
+    result[locale] = convertLocaleTranslations(localeTranslations, fromMode, toMode);
   }
 
   return result;
@@ -58,17 +51,9 @@ function convertLocaleTranslations(
     } else if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
       // Check if this is a pluralization object
       if (isPluralObject(value as TranslationObject)) {
-        result[key] = convertPluralObject(
-          value as TranslationObject,
-          fromMode,
-          toMode
-        );
+        result[key] = convertPluralObject(value as TranslationObject, fromMode, toMode);
       } else {
-        result[key] = convertLocaleTranslations(
-          value as TranslationObject,
-          fromMode,
-          toMode
-        );
+        result[key] = convertLocaleTranslations(value as TranslationObject, fromMode, toMode);
       }
     } else {
       result[key] = value;

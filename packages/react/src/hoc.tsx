@@ -24,15 +24,7 @@ export function withTranslation<P extends WithTranslationProps>(
   const WrappedComponent = (props: Omit<P, keyof WithTranslationProps>) => {
     const { t, locale, setLocale, i18n } = useTranslation();
 
-    return (
-      <Component
-        {...(props as P)}
-        t={t}
-        locale={locale}
-        setLocale={setLocale}
-        i18n={i18n}
-      />
-    );
+    return <Component {...(props as P)} t={t} locale={locale} setLocale={setLocale} i18n={i18n} />;
   };
 
   WrappedComponent.displayName = `withTranslation(${displayName})`;

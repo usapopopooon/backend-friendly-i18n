@@ -1,8 +1,5 @@
 import type { InterpolationOptions } from './schemas/index.js';
-import {
-  RailsInterpolationDefaults,
-  LaravelInterpolationDefaults,
-} from './schemas/index.js';
+import { RailsInterpolationDefaults, LaravelInterpolationDefaults } from './schemas/index.js';
 
 /**
  * 補間処理を行うクラス
@@ -110,22 +107,14 @@ export class Interpolator {
    * Rails形式からLaravel形式に変換
    */
   static railsToLaravel(text: string): string {
-    return Interpolator.convert(
-      text,
-      RailsInterpolationDefaults,
-      LaravelInterpolationDefaults
-    );
+    return Interpolator.convert(text, RailsInterpolationDefaults, LaravelInterpolationDefaults);
   }
 
   /**
    * Laravel形式からRails形式に変換
    */
   static laravelToRails(text: string): string {
-    return Interpolator.convert(
-      text,
-      LaravelInterpolationDefaults,
-      RailsInterpolationDefaults
-    );
+    return Interpolator.convert(text, LaravelInterpolationDefaults, RailsInterpolationDefaults);
   }
 }
 

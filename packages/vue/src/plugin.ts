@@ -32,9 +32,7 @@ export const I18nPlugin = {
     } else if (pluginOptions.options) {
       i18n = createI18n(pluginOptions.options);
     } else {
-      throw new Error(
-        'I18nPlugin requires either an i18n instance or options to create one'
-      );
+      throw new Error('I18nPlugin requires either an i18n instance or options to create one');
     }
 
     // Provide I18n instance for injection

@@ -1,8 +1,18 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
+import type { I18n } from '@bf-i18n/core';
 import { createI18n } from '@bf-i18n/core';
 import { I18nPlugin } from '../plugin.js';
 import { defineComponent, h } from 'vue';
+
+// Import plugin.ts to ensure type augmentation is applied
+import '../plugin.js';
+
+interface I18nGlobalProperties {
+  $t: (key: string, options?: Record<string, unknown>) => string;
+  $i18n: I18n;
+  $locale: string;
+}
 
 describe('I18nPlugin', () => {
   it('provides global $t method', () => {
@@ -15,7 +25,8 @@ describe('I18nPlugin', () => {
 
     const TestComponent = defineComponent({
       render() {
-        return h('div', (this as any).$t('hello'));
+        const self = this as unknown as I18nGlobalProperties;
+        return h('div', self.$t('hello'));
       },
     });
 
@@ -36,11 +47,12 @@ describe('I18nPlugin', () => {
       },
     });
 
-    let capturedI18n: any;
+    let capturedI18n: I18n | undefined;
 
     const TestComponent = defineComponent({
       mounted() {
-        capturedI18n = (this as any).$i18n;
+        const self = this as unknown as I18nGlobalProperties;
+        capturedI18n = self.$i18n;
       },
       render() {
         return h('div');
@@ -67,7 +79,8 @@ describe('I18nPlugin', () => {
 
     const TestComponent = defineComponent({
       render() {
-        return h('div', (this as any).$locale);
+        const self = this as unknown as I18nGlobalProperties;
+        return h('div', self.$locale);
       },
     });
 
@@ -78,13 +91,14 @@ describe('I18nPlugin', () => {
     });
 
     expect(wrapper.text()).toBe('en');
-    expect((wrapper.vm as any).$locale).toBe('en');
+    const vm = wrapper.vm as unknown as I18nGlobalProperties;
+    expect(vm.$locale).toBe('en');
 
     // Set locale via i18n instance (the setter on $locale may not work in test env)
     i18n.locale = 'ja';
 
     expect(i18n.locale).toBe('ja');
-    expect((wrapper.vm as any).$locale).toBe('ja');
+    expect(vm.$locale).toBe('ja');
   });
 
   it('$t supports interpolation', () => {
@@ -97,7 +111,8 @@ describe('I18nPlugin', () => {
 
     const TestComponent = defineComponent({
       render() {
-        return h('div', (this as any).$t('greeting', { name: 'World' }));
+        const self = this as unknown as I18nGlobalProperties;
+        return h('div', self.$t('greeting', { name: 'World' }));
       },
     });
 

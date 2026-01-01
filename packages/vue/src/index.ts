@@ -1,11 +1,7 @@
 // @bf-i18n/vue - Vue integration for backend-friendly i18n
 
 // Plugin
-export {
-  I18nPlugin,
-  I18nInjectionKey,
-  type I18nPluginOptions,
-} from './plugin.js';
+export { I18nPlugin, I18nInjectionKey, type I18nPluginOptions } from './plugin.js';
 
 // Composables
 export {
@@ -21,9 +17,4 @@ export {
 export { vT } from './directive.js';
 
 // Re-export core types for convenience
-export type {
-  I18n,
-  I18nOptions,
-  TranslateOptions,
-  Translations,
-} from '@bf-i18n/core';
+export type { I18n, I18nOptions, TranslateOptions, Translations } from '@bf-i18n/core';

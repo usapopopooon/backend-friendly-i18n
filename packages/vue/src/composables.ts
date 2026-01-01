@@ -51,9 +51,7 @@ export interface UseTranslationReturn {
 /**
  * Composable for translations.
  */
-export function useTranslation(
-  options: UseTranslationOptions = {}
-): UseTranslationReturn {
+export function useTranslation(options: UseTranslationOptions = {}): UseTranslationReturn {
   const i18n = useI18n();
 
   // Reactive locale ref that updates on I18n changes

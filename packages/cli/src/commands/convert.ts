@@ -1,4 +1,5 @@
 import { Command } from 'commander';
+import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { parseFile, writeFile, loadTranslationsFromDir, type FileFormat } from '../parser.js';
 import { convertTranslations } from '../converter.js';
@@ -18,7 +19,6 @@ export const convertCommand = new Command('convert')
       options: { fromMode: string; toMode: string; format?: string }
     ) => {
       try {
-        const fs = require('node:fs');
         const inputStats = fs.statSync(input);
 
         if (inputStats.isDirectory()) {

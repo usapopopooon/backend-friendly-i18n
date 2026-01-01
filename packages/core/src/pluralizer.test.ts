@@ -1,9 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import {
-  Pluralizer,
-  createRailsPluralizer,
-  createLaravelPluralizer,
-} from './pluralizer.js';
+import { Pluralizer, createRailsPluralizer, createLaravelPluralizer } from './pluralizer.js';
 
 describe('Pluralizer', () => {
   describe('Rails format (key-based)', () => {
@@ -120,10 +116,7 @@ describe('Pluralizer', () => {
   describe('resolve with type', () => {
     it('should resolve key-based with object input', () => {
       const pluralizer = new Pluralizer('key', 'en');
-      const result = pluralizer.resolve(
-        { one: 'One', other: 'Many' },
-        1
-      );
+      const result = pluralizer.resolve({ one: 'One', other: 'Many' }, 1);
       expect(result).toBe('One');
     });
 

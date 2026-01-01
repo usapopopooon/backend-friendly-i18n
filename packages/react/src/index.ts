@@ -23,9 +23,4 @@ export { Trans, type TransProps } from './Trans.js';
 export { withTranslation, type WithTranslationProps } from './hoc.js';
 
 // Re-export core types for convenience
-export type {
-  I18n,
-  I18nOptions,
-  TranslateOptions,
-  Translations,
-} from '@bf-i18n/core';
+export type { I18n, I18nOptions, TranslateOptions, Translations } from '@bf-i18n/core';

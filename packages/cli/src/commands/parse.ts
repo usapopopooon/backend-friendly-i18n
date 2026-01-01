@@ -1,4 +1,5 @@
 import { Command } from 'commander';
+import * as fs from 'node:fs';
 import { parseFile, loadTranslationsFromDir } from '../parser.js';
 
 export const parseCommand = new Command('parse')
@@ -11,7 +12,6 @@ export const parseCommand = new Command('parse')
       let result: unknown;
 
       // Check if it's a directory or file
-      const fs = require('node:fs');
       const stats = fs.statSync(inputPath);
 
       if (stats.isDirectory()) {
@@ -20,9 +20,7 @@ export const parseCommand = new Command('parse')
         result = parseFile(inputPath);
       }
 
-      const output = options.pretty
-        ? JSON.stringify(result, null, 2)
-        : JSON.stringify(result);
+      const output = options.pretty ? JSON.stringify(result, null, 2) : JSON.stringify(result);
 
       console.log(output);
     } catch (error) {

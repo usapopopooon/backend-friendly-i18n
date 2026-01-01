@@ -99,14 +99,10 @@ export class I18n {
     }
 
     if (Array.isArray(fallbackLocale)) {
-      return [...fallbackLocale, defaultLocale].filter(
-        (loc, idx, arr) => arr.indexOf(loc) === idx
-      );
+      return [...fallbackLocale, defaultLocale].filter((loc, idx, arr) => arr.indexOf(loc) === idx);
     }
 
-    return [fallbackLocale, defaultLocale].filter(
-      (loc, idx, arr) => arr.indexOf(loc) === idx
-    );
+    return [fallbackLocale, defaultLocale].filter((loc, idx, arr) => arr.indexOf(loc) === idx);
   }
 
   /**

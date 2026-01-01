@@ -83,7 +83,9 @@ describe('Interpolator', () => {
   describe('extractVariables', () => {
     it('should extract Rails variables', () => {
       const interpolator = createRailsInterpolator();
-      const variables = interpolator.extractVariables('Hello, %{name}! You have %{count} messages.');
+      const variables = interpolator.extractVariables(
+        'Hello, %{name}! You have %{count} messages.'
+      );
       expect(variables).toEqual(['name', 'count']);
     });
 
